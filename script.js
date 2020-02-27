@@ -28,7 +28,7 @@ function searchWords(){
 }
 
 function hideSection(text){
-    if (text == 'main') {
+    if (text === 'main') {
         document.getElementById("mainSection").hidden = false;
         document.getElementById("menuSection").hidden = true;
         document.getElementById("newsSection").hidden = true;
@@ -37,7 +37,7 @@ function hideSection(text){
         document.getElementById("authorSection").hidden = true;
         document.getElementById("searchSection").hidden = true;
         document.title = "Головна";
-    } else if (text == 'menu') {
+    } else if (text === 'menu') {
         document.getElementById("mainSection").hidden=true;
         document.getElementById("menuSection").hidden=false;
         document.getElementById("newsSection").hidden=true;
@@ -45,8 +45,8 @@ function hideSection(text){
         document.getElementById("outputSection").hidden=true;
         document.getElementById("authorSection").hidden=true;
         document.getElementById("searchSection").hidden=true;
-        document.title="Меню";
-    } else if (text == 'news') {
+        document.title = "Меню";
+    } else if (text === 'news') {
         document.getElementById("mainSection").hidden=true;
         document.getElementById("menuSection").hidden=true;
         document.getElementById("newsSection").hidden=false;
@@ -54,8 +54,8 @@ function hideSection(text){
         document.getElementById("outputSection").hidden=true;
         document.getElementById("authorSection").hidden=true;
         document.getElementById("searchSection").hidden=true;
-        document.title="Новини";
-    } else if (text == 'input') {
+        document.title = "Новини";
+    } else if (text === 'input') {
         document.getElementById("mainSection").hidden=true;
         document.getElementById("menuSection").hidden=true;
         document.getElementById("newsSection").hidden=true;
@@ -63,8 +63,8 @@ function hideSection(text){
         document.getElementById("outputSection").hidden=true;
         document.getElementById("authorSection").hidden=true;
         document.getElementById("searchSection").hidden=true;
-        document.title="Ввід інформації";
-    } else if (text == 'output') {
+        document.title = "Ввід інформації";
+    } else if (text === 'output') {
         document.getElementById("mainSection").hidden=true;
         document.getElementById("menuSection").hidden=true;
         document.getElementById("newsSection").hidden=true;
@@ -72,8 +72,8 @@ function hideSection(text){
         document.getElementById("outputSection").hidden=false;
         document.getElementById("authorSection").hidden=true;
         document.getElementById("searchSection").hidden=true;
-        document.title="Вивід інформації";
-    } else if (text == 'author') {
+        document.title = "Вивід інформації";
+    } else if (text === 'author') {
         document.getElementById("mainSection").hidden=true;
         document.getElementById("menuSection").hidden=true;
         document.getElementById("newsSection").hidden=true;
@@ -81,8 +81,8 @@ function hideSection(text){
         document.getElementById("outputSection").hidden=true;
         document.getElementById("authorSection").hidden=false;
         document.getElementById("searchSection").hidden=true;
-        document.title="Про автора";
-    } else if (text == 'search') {
+        document.title = "Про автора";
+    } else if (text === 'search') {
         document.getElementById("mainSection").hidden=true;
         document.getElementById("menuSection").hidden=true;
         document.getElementById("newsSection").hidden=true;
