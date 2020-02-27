@@ -1,32 +1,5 @@
 //window.onunload(confirm('Ви дійсно хочете покинути сайт?'));
 //window.onload(areYouHere);
-
-function chBGH1back() { document.getElementById('site_title').style.backgroundColor='transparent'; }
-function chBGH1() {
-    document.getElementById('site_title').style.backgroundColor='red';
-    searchWords();
-}
-function areYouHere() {
-    let iAmHere = confirm('Ви ще тут?');
-    if (iAmHere)
-        setTimeout(areYouHere, 10000);
-}
-
-function searchWords(){
-    let allText = document.getElementsByClassName("left");
-    let newArrayOfWords;
-    //for (let i = 0; i < allText.length; i++) {
-    //newArrayOfWords = allText[0].textContent.split(" ");
-    let found;
-    let str = "aaaa bbbbA ddd Baaa";
-    let reg1 = /^н/g;
-    let reg2 = /a[a-z]a/g;
-    let reg3 = /(\bн)(и\b)/g;
-    //found = str.match(reg2);
-    found = allText[0].textContent.match(reg1);
-    console.log( found );
-}
-
 function hideSection(text){
     if (text === 'main') {
         document.getElementById("mainSection").hidden = false;
@@ -92,3 +65,36 @@ function hideSection(text){
         document.getElementById("searchSection").hidden=false;
     }
 }
+function chBGH1back() { document.getElementById('site_title').style.backgroundColor='transparent'; }
+function chBGH1() {
+    document.getElementById('site_title').style.backgroundColor='red';
+    searchWords();
+}
+function areYouHere() {
+    let iAmHere = confirm('Ви ще тут?');
+    if (iAmHere)
+        setTimeout(areYouHere, 10000);
+}
+function showError(){
+    alert("Приносимо свої вибачення. Ця сторінка ще не допрацьована!");
+}
+function searchWords(){
+    let allText = document.getElementsByClassName("left");
+    let newArrayOfWords;
+    //for (let i = 0; i < allText.length; i++) {
+    //newArrayOfWords = allText[0].textContent.split(" ");
+    let found;
+    let str = "aaaa bbbbA ddd Baaa";
+    let reg1 = /^н/g;
+    let reg2 = /a[a-z]a/g;
+    let reg3 = /(\bн)(и\b)/g;
+    let regForWords = /[.,\/ -]/;
+    let regForWords1 = /[ ,.:;-?!]+/;
+    newArrayOfWords = allText[0].textContent.split(regForWords1);
+    //found = str.match(reg2);
+    found = allText[0].textContent.match(reg1);
+
+    console.log( newArrayOfWords );
+}
+
+
