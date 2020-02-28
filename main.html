@@ -11,9 +11,16 @@
     </head>
     <body onunload="areYouHere()">
         <header>
-            <h1 id="site_title" onmouseout="chBGH1back()" onmouseover="chBGH1()">Слабо-алкогольні напої</h1>
-            <div style="margin: 1px; padding: 10px;">
-                <input type="text" name="searchText" style="float: right;" placeholder="Search">
+            <div class="leftHeader">
+                <h1 id="site_title" onmouseout="chBGH1back()" onmouseover="chBGH1()">Слабо-алкогольні напої</h1>
+            </div>
+            <div class="rightHeader">
+                <div >
+                    <form name="searchFrom">
+                        <input type="text" name="searchText" placeholder="Search">
+                        <input type="button" name="searchSubmit" value="Шукати" onclick="searchWords(document.searchFrom.searchText.value)">
+                    </form>
+                </div>
             </div>
         </header>
         <main>
@@ -256,18 +263,9 @@
                     <img src="img/fxurtrubji4.jpg" alt="" width="500">
                 </section>
                 <section id="searchSection" hidden>
-                    <p>searchSection</p>
-                    <p>searchSection</p>
-                    <p>searchSection</p>
-                    <p>searchSection</p>
-                    <p>searchSection</p>
-                    <p>searchSection</p>
-                    <p>searchSection</p>
-                    <p>searchSection</p>
-                    <p>searchSection</p>
-                    <p>searchSection</p>
-                    <p>searchSection</p>
-                    <p>searchSection</p>
+                <p id="searchParagraph">
+
+                </p>
                 </section>
             </div>
             <div class="right">
