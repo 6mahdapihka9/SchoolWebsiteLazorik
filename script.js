@@ -43,7 +43,6 @@ function hideSection(text){
 function chBGH1back() { document.getElementById('site_title').style.backgroundColor='transparent'; }
 function chBGH1() {
     document.getElementById('site_title').style.backgroundColor='red';
-    searchWords();
 }
 function areYouHere() {
     let iAmHere = confirm('Ви ще тут?');
@@ -56,27 +55,26 @@ function showError(){
 function searchWords(someText){
     hideAll();
     document.getElementById("searchSection").hidden=false;
-    let allText = document.getElementsByClassName("left");
-    //newArrayOfWords = allText[0].textContent.split(" ");
-    let amountOfWords, newArray, finalArray;
+
+    let allText = document.getElementsByClassName("contentT");
+    let amountOfWords = 0, newArray;
     let str = "aaaa bbbbA ddd Baaa";
     let reg2 = /a[a-z]a/g;
-    let reg1 = /^н/g;
     let reg3 = /(\bн)(и\b)/g;
-    let regForWords = /[.,\/ -]/;
     let regForWords1 = /[ ,.:;-?!]+/;
-    newArray = allText[0].textContent.split(regForWords1);
-    finalArray = allText[0].textContent.match(reg1);
 
-    console.log( someText );
-    let searchBlock = document.getElementById("searchSection");
-    searchBlock.removeChild()
-    let searchP = document.createElement('p');
-    searchP.id="searchParagraph";
+    newArray = allText[0].textContent.split(regForWords1);
+
+    let searchP = document.getElementById("searchParagraph");
+    searchP.innerText = "";
+    amountOfWords = 0;
     for (let i = 0; i < newArray.length; i++) {
-        searchP.innerHTML = "" + newArray[i] + ", ";
+        if (newArray[i] !== '\n' && newArray[i] === someText) {
+            searchP.innerHTML += "" + newArray[i] + ", ";
+            amountOfWords++;
+        }
     }
-    searchBlock.append(searchP);
+    searchP.innerText = 'Кількість співпадінь: ' + amountOfWords + '\n' + searchP.innerText;
 }
 
 
