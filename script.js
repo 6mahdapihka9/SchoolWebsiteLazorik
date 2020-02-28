@@ -1,5 +1,3 @@
-//window.onunload(confirm('Ви дійсно хочете покинути сайт?'));
-//window.onload(areYouHere);
 function hideAll(){
     document.getElementById("mainSection").hidden = true;
     document.getElementById("menuSection").hidden = true;
@@ -8,6 +6,7 @@ function hideAll(){
     document.getElementById("outputSection").hidden = true;
     document.getElementById("authorSection").hidden = true;
     document.getElementById("searchSection").hidden = true;
+    document.getElementById("infoSection").hidden = true;
 }
 function hideSection(text){
     if (text === 'main') {
@@ -42,12 +41,10 @@ function hideSection(text){
 }
 function chBGH1back() { document.getElementById('site_title').style.backgroundColor='transparent'; }
 function chBGH1() {
-    document.getElementById('site_title').style.backgroundColor='red';
+    document.getElementById('site_title').style.backgroundColor='blue';
 }
 function areYouHere() {
-    let iAmHere = confirm('Ви ще тут?');
-    if (iAmHere)
-        setTimeout(areYouHere, 10000);
+    //setTimeout(confirm("Додати цей сайт до закладок?"), 1000);
 }
 function showError(){
     alert("Приносимо свої вибачення. Ця сторінка ще не допрацьована!");
@@ -57,33 +54,28 @@ function searchWords(someText){
     document.getElementById("searchSection").hidden=false;
 
     let allText = document.getElementsByClassName("contentT");
-    let amountOfWords = 0, newArray;
-    let str = "aaaa bbbbA ddd Baaa g";
-    let reg = /^a a$/g;
-    let reg2 = /a[a-z]a/g;
-    let reg3 = /(\bн)(и\b)/g;
 
-    console.log( str.match(reg) );
-    let regForWords1 = /[ ,.:;\-?!\n]+/;
-
-    newArray = allText[0].textContent.split(regForWords1);
+    let str = "aaaa.9 bbbbA 5646 ddd Baaa g dfvd78 778";
+    let reg = /\sн[а-я]*и(\s|\n)/g;
+    var reg3 = new RegExp(someText, "g");
+    let reg4 = /\d+(?!\.)/g;
+    let reg5 = /[ ,.:;\-?!\n]+/;
 
     let searchP = document.getElementById("searchParagraph");
     let searchH2 = document.getElementById("searchH2");
+
     searchP.innerText = "";
-    amountOfWords = 0;
-    for (let i = 0; i < newArray.length; i++) {
-        if (newArray[i] !== '\n' && newArray[i] === someText) {
-            searchP.innerHTML += "" + newArray[i] + ", ";
-            amountOfWords++;
-        }
-        console.log( newArray[i] );
-    }
-    for (let i = 0; i < newArray.length; i++) {
-        //console.log( newArray[i].match(/напитки/) );
-    }
+    searchP.innerText += allText[0].textContent.match( reg3 ) + ';\n';
+    searchP.innerText += allText[0].textContent.match( reg4 ) + ';\n';
+    searchP.innerText += allText[0].textContent.match( reg ) + ';\n';
     searchH2.innerText = 'Пошук по слову "' + someText + '"';
-    searchP.innerText = 'Кількість співпадінь: ' + amountOfWords + '\n' + searchP.innerText;
+}
+function runTask() {
+    hideAll();
+    document.getElementById("infoSection").hidden=false;
+    let infoP = document.getElementById("infoParagraph");
+    infoP.innerText = navigator.userAgent + "\n";
+    infoP.innerText += window.top.name;
 }
 
 

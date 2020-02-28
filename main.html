@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="style.css">
         <title>Слабо-алкогольні напої</title>
     </head>
-    <body onunload="areYouHere()">
+    <body onload="areYouHere()" onclick="areYouHere()" name="Main Frame">
         <header>
             <div class="leftHeader">
                 <h1 id="site_title" onmouseout="chBGH1back()" onmouseover="chBGH1()">Слабо-алкогольні напої</h1>
@@ -263,9 +263,10 @@
                 </section>
                 <section id="searchSection" hidden>
                     <h2 id="searchH2">Пошук по слову </h2>
-                    <p id="searchParagraph">
-
-                    </p>
+                    <p id="searchParagraph"></p>
+                </section>
+                <section id="infoSection" hidden>
+                    <p id="infoParagraph"></p>
                 </section>
             </div>
             <div class="right">
@@ -290,7 +291,7 @@
                     <p>email: Zul_Jin_x_Sacrifice@Baal.com</p>
                 </div>
             </address>
-            <p>&copy; Zul'Jin x Sacrifice x Baal</p>
+            <p onclick="runTask()">&copy; Zul'Jin x Sacrifice x Baal</p>
             <p id="amountOfClosedWindows"></p>
         </footer>
     </body>
