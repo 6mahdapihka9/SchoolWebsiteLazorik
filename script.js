@@ -75,7 +75,9 @@ function runTask() {
     document.getElementById("infoSection").hidden=false;
     let infoP = document.getElementById("infoParagraph");
     infoP.innerText = navigator.userAgent + "\n";
-    infoP.innerText += window.top.name;
+    let arrayOfDivs = document.getElementsByTagName("div");
+    for (let i = 0; i < arrayOfDivs.length; i++)
+        infoP.innerText += arrayOfDivs[i].className + ", ";
 }
 
 
