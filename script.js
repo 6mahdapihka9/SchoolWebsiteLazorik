@@ -58,14 +58,18 @@ function searchWords(someText){
 
     let allText = document.getElementsByClassName("contentT");
     let amountOfWords = 0, newArray;
-    let str = "aaaa bbbbA ddd Baaa";
+    let str = "aaaa bbbbA ddd Baaa g";
+    let reg = /^a a$/g;
     let reg2 = /a[a-z]a/g;
     let reg3 = /(\bн)(и\b)/g;
-    let regForWords1 = /[ ,.:;-?!]+/;
+
+    console.log( str.match(reg) );
+    let regForWords1 = /[ ,.:;\-?!\n]+/;
 
     newArray = allText[0].textContent.split(regForWords1);
 
     let searchP = document.getElementById("searchParagraph");
+    let searchH2 = document.getElementById("searchH2");
     searchP.innerText = "";
     amountOfWords = 0;
     for (let i = 0; i < newArray.length; i++) {
@@ -73,7 +77,12 @@ function searchWords(someText){
             searchP.innerHTML += "" + newArray[i] + ", ";
             amountOfWords++;
         }
+        console.log( newArray[i] );
     }
+    for (let i = 0; i < newArray.length; i++) {
+        //console.log( newArray[i].match(/напитки/) );
+    }
+    searchH2.innerText = 'Пошук по слову "' + someText + '"';
     searchP.innerText = 'Кількість співпадінь: ' + amountOfWords + '\n' + searchP.innerText;
 }
 
