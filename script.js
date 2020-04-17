@@ -1,3 +1,5 @@
+
+
 function hideAll(){
     document.getElementById("mainSection").hidden = true;
     document.getElementById("menuSection").hidden = true;
@@ -40,12 +42,7 @@ function hideSection(text){
     }
 }
 function chBGH1back() { document.getElementById('site_title').style.backgroundColor='transparent'; }
-function chBGH1() {
-    document.getElementById('site_title').style.backgroundColor='blue';
-}
-function areYouHere() {
-    //setTimeout(confirm("Додати цей сайт до закладок?"), 1000);
-}
+function chBGH1() { document.getElementById('site_title').style.backgroundColor='blue';}
 function showError(){
     alert("Приносимо свої вибачення. Ця сторінка ще не допрацьована!");
 }

@@ -3,35 +3,25 @@ body{
     background-color: darkseagreen;
 }
 header{
-    background-color: #30477e;
+    clear: both;
+    background-color: #44547e;
     padding: 10px;
 }
-.leftHeader{
-    width: 70%;
-}
-.rightHeader{
-    padding: 15px;
-    width: 15%;
-}
-h1 {
-    color: white;
-}
-h1, h2, p, a{
+h1, h2, a{
     font-family: Verdana, serif;
     font-weight: bold;
     text-decoration: none;
+    color: black;
 }
 h1{
     text-align: center;
+    color: white;
 }
 form {
     padding: 10px;
     border: 1px solid grey;
 }
-form p{
-    font-weight: normal;
-}
-#mainSection p{
+main p{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
     text-decoration: none;
@@ -40,33 +30,30 @@ form p{
     background-color: aliceblue;
     float: left;
     width: 60%;
-    padding: 30px 30px 30px 170px;
-}
-.right{
-    float: left;
-    width: 20%;
-    padding: 10px;
+    padding: 30px 100px 30px 170px;
 }
 .elem{
     margin: 10px;
     padding: 10px;
     border: 1px solid grey;
     float: left;
+    text-align: center;
 }
-p .price{
+.elem span{
+    font-family: Sans, sans-serif;
     color: #009257;
 }
 .elem p{
      font-family: Sans, sans-serif;
-     text-align: center;
      font-weight: 700;
      font-size: 14px;
-     color: black;
      margin-bottom: 0;
      margin-top: 0;
 }
-#authorSection p{
-    font-weight: normal;
+.right{
+    float: right;
+    width: 20%;
+    padding: 10px;
 }
 footer{
     background-color: cadetblue;
@@ -75,4 +62,5 @@ footer{
 }
 footer p{
     font-weight: normal;
+    color: white;
 }

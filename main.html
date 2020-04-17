@@ -9,19 +9,9 @@
         <link rel="stylesheet" href="style.css">
         <title>Слабо-алкогольні напої</title>
     </head>
-    <body onload="areYouHere()" onclick="areYouHere()" name="Main Frame">
+    <body name="Main Frame">
         <header>
-            <div class="leftHeader">
-                <h1 id="site_title" onmouseout="chBGH1back()" onmouseover="chBGH1()">Слабо-алкогольні напої</h1>
-            </div>
-            <div class="rightHeader">
-                <div >
-                    <form name="searchFrom">
-                        <input type="text" name="searchText" placeholder="Search">
-                        <input type="button" name="searchSubmit" value="Шукати" onclick="searchWords(document.searchFrom.searchText.value)">
-                    </form>
-                </div>
-            </div>
+            <h1 id="site_title" onmouseout="chBGH1back()" onmouseover="chBGH1()">Слабо-алкогольні напої</h1>
         </header>
         <main>
             <div class="left">
@@ -94,7 +84,7 @@
                             <p>Beermix</p>
                             <p>Виробник: Оболонь Украіна</p>
                             <p>Термін придатності: 1 рік</p>
-                            <p name="price">0,5л - 22.40 грн</p>
+                            <span class="price">0,5л - 22.40 грн</span>
                         </a>
                     </div>
                     <div class="elem">
@@ -104,7 +94,7 @@
                             <p>Джин Тоник</p>
                             <p>Виробник: Оболонь Украіна</p>
                             <p>Термін придатності: 1 рік</p>
-                            <p name="price">0,5л - 25.55 грн</p>
+                            <span class="price">0,5л - 25.55 грн</span>
                         </a>
                     </div>
                     <div class="elem">
@@ -114,7 +104,7 @@
                             <p>Garage</p>
                             <p>Виробник: Оболонь Украіна</p>
                             <p>Термін придатності: 1 рік</p>
-                            <p name="price">0,5л - 19.88 грн</p>
+                            <span class="price">0,5л - 19.88 грн</span>
                         </a>
                     </div>
                     <div class="elem">
@@ -124,7 +114,7 @@
                             <p>King's bridge</p>
                             <p>Виробник: King's Bridge Great Britain</p>
                             <p>Термін придатності: 1 рік</p>
-                            <p name="price">0,5л - 28.10 грн</p>
+                            <span class="price">0,5л - 28.10 грн</span>
                         </a>
                     </div>
                     <div class="elem">
@@ -134,7 +124,7 @@
                             <p>Longer</p>
                             <p>Виробник: Highworld Украіна</p>
                             <p>Термін придатності: 1 рік</p>
-                            <p name="price">0,33л - 18.98 грн</p>
+                            <span class="price">0,33л - 18.98 грн</span>
                         </a>
                     </div>
                     <div class="elem">
@@ -144,7 +134,7 @@
                             <p>Бренді-кола</p>
                             <p>Виробник: Оболонь Украіна</p>
                             <p>Термін придатності: 1 рік</p>
-                            <p name="price">0,5л - 24.60 грн</p>
+                            <span class="price">0,5л - 24.60 грн</span>
                         </a>
                     </div>
                     <div class="elem">
@@ -154,7 +144,7 @@
                             <p>Ром-кола</p>
                             <p>Виробник: BoraBora Украіна</p>
                             <p>Термін придатності: 1 рік</p>
-                            <p name="price">0,5л - 27.20 грн</p>
+                            <span class="price">0,5л - 27.20 грн</span>
                         </a>
                     </div>
                     <div class="elem">
@@ -164,7 +154,7 @@
                             <p>Shake</p>
                             <p>Виробник: Оболонь Украіна</p>
                             <p>Термін придатності: 1 рік</p>
-                            <p name="price">0,33л - 20.80 грн</p>
+                            <span class="price">0,33л - 20.80 грн</span>
                         </a>
                     </div>
                     <div class="elem">
@@ -174,7 +164,7 @@
                             <p>Ice</p>
                             <p>Виробник: Carlsberg Украіна</p>
                             <p>Термін придатності: 1 рік</p>
-                            <p name="price">0,5л - 23.33 грн</p>
+                            <span class="price">0,5л - 23.33 грн</span>
                         </a>
                     </div>
                     <div class="elem">
@@ -184,7 +174,7 @@
                             <p>Віскі-кола</p>
                             <p>Виробник: Оболонь Украіна</p>
                             <p>Термін придатності: 1 рік</p>
-                            <p name="price">0,5л - 23.60 грн</p>
+                            <span class="price">0,5л - 23.60 грн</span>
                         </a>
                     </div>
                 </section>
@@ -213,7 +203,9 @@
                         <p><b>Email:</b><br>
                             <input type="text" size="40" name="email">
                         </p>
+                        <p>
                         <input type="checkbox" name="spam">бажаєте отримувати рекламну інформацію<Br>
+                        </p>
                         <p><b>Як часто користуєтесь послугами нашої фірми:</b><Br>
                             <input type="radio" name="service" value="often"> часто<Br>
                             <input type="radio" name="service" value="rare"> не часто<Br>
@@ -270,6 +262,10 @@
                 </section>
             </div>
             <div class="right">
+                <form name="searchFrom" style="margin: 40px">
+                    <input type="text" name="searchText" placeholder="Search">
+                    <input type="button" name="searchSubmit" value="Шукати" onclick="searchWords(document.searchFrom.searchText.value)">
+                </form>
                 <nav>
                     <ul type="none">
                         <li><a href="#" onclick="hideSection('main')">Головна</a></li>
