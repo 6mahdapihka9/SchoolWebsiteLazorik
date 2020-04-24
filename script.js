@@ -17,27 +17,27 @@ function hideSection(text){
         document.title = "Головна";
     } else if (text === 'menu') {
         hideAll();
-        document.getElementById("menuSection").hidden=false;
+        document.getElementById("menuSection").hidden = false;
         document.title = "Меню";
     } else if (text === 'news') {
         hideAll();
-        document.getElementById("newsSection").hidden=false;
+        document.getElementById("newsSection").hidden = false;
         document.title = "Новини";
     } else if (text === 'input') {
         hideAll();
-        document.getElementById("inputSection").hidden=false;
+        document.getElementById("inputSection").hidden = false;
         document.title = "Ввід інформації";
     } else if (text === 'output') {
         hideAll();
-        document.getElementById("outputSection").hidden=false;
+        document.getElementById("outputSection").hidden = false;
         document.title = "Вивід інформації";
     } else if (text === 'author') {
         hideAll();
-        document.getElementById("authorSection").hidden=false;
+        document.getElementById("authorSection").hidden = false;
         document.title = "Про автора";
     } else if (text === 'search') {
         hideAll();
-        document.getElementById("searchSection").hidden=false;
+        document.getElementById("searchSection").hidden = false;
         document.title = "Пошук";
     }
 }
@@ -52,11 +52,10 @@ function searchWords(someText){
 
     let allText = document.getElementsByClassName("contentT");
 
-    let str = "aaaa.9 bbbbA 5646 ddd Baaa g dfvd78 778";
     let reg = /\sн[а-я]*и(\s|\n)/g;
-    var reg3 = new RegExp(someText, "g");
+    let reg3 = new RegExp(someText, "g");
     let reg4 = /\d+(?!\.)/g;
-    let reg5 = /[ ,.:;\-?!\n]+/;
+    //let reg5 = /[ ,.:;\-?!\n]+/;
 
     let searchP = document.getElementById("searchParagraph");
     let searchH2 = document.getElementById("searchH2");
