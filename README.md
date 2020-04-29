@@ -1,2 +1,2 @@
 # SchoolWebsiteLazorik
- School project: website using html, css, js, jQuery, php, SQL
+ School project: website using html, css, js, jQuery, XAMPP, php, MySQL, Apache
