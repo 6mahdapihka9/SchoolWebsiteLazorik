@@ -10,9 +10,9 @@ function showError(){
 }
 function searchWords(someText){
     hideAll();
-    document.getElementById("searchSection").hidden=false;
-
     let allText = document.getElementsByClassName("contentT");
+
+    document.getElementById("searchSection").hidden = false;
 
     let reg = /\sн[а-я]*и(\s|\n)/g;
     let reg3 = new RegExp(someText, "g");
@@ -21,12 +21,16 @@ function searchWords(someText){
 
     let searchP = document.getElementById("searchParagraph");
     let searchH2 = document.getElementById("searchH2");
-
-    searchP.innerText = "";
-    searchP.innerText += allText[0].textContent.match( reg3 ) + ';\n';
-    searchP.innerText += allText[0].textContent.match( reg4 ) + ';\n';
-    searchP.innerText += allText[0].textContent.match( reg ) + ';\n';
-    searchH2.innerText = 'Пошук по слову "' + someText + '"';
+    if (allText[0] !== undefined) {
+        searchP.innerText = "";
+        searchP.innerText += allText[0].textContent.match(reg3) + ';\n';
+        searchP.innerText += allText[0].textContent.match(reg4) + ';\n';
+        searchP.innerText += allText[0].textContent.match(reg) + ';\n';
+        searchH2.innerText = 'Пошук по слову "' + someText + '" :';
+    } else {
+        searchH2.innerText = 'Пошук не дав результату :(';
+        searchP.innerText = "\n\n\n\n\nЦя сторінка не містить тексту для пошуку. Для пошуку перейдіть на головну сторінку!";
+    }
 }
 function runTask() {
     hideAll();

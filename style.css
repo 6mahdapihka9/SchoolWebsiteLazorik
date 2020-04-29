@@ -30,7 +30,7 @@ main p{
     background-color: aliceblue;
     float: left;
     width: 60%;
-    padding: 30px 100px 30px 170px;
+    padding: 30px 100px 100px 170px;
 }
 .elem{
     margin: 10px;
@@ -63,4 +63,12 @@ footer{
 footer p{
     font-weight: normal;
     color: white;
+}
+table {
+    margin: 0;
+}
+table, th, td, tr {
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px
 }

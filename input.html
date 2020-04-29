@@ -7,7 +7,7 @@
         <meta name="author" content="Zul'Jin x Sacrifice x Baal">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-        <title>Слабо-алкогольні напої</title>
+        <title>Ввід/вивід даних</title>
     </head>
     <body>
         <header>
@@ -16,39 +16,134 @@
         <main>
             <div class="left">
                 <section id="mainSection" class="contentT" >
-                    <form name="test" method="post" action="">
-                        <p><b>Прізвище:</b><br>
-                            <input type="text" size="40" name="surname">
-                        </p>
-                        <p><b>Ім'я:</b><br>
-                            <input type="text" size="40" name="name">
-                        </p>
-                        <p><b>Email:</b><br>
-                            <input type="text" size="40" name="email">
-                        </p>
-                        <p>
-                        <input type="checkbox" name="spam">бажаєте отримувати рекламну інформацію<Br>
-                        </p>
-                        <p><b>Як часто користуєтесь послугами нашої фірми:</b><Br>
-                            <input type="radio" name="service" value="often"> часто<Br>
-                            <input type="radio" name="service" value="rare"> не часто<Br>
-                            <input type="radio" name="service" value="dont-use"> не користуюсь<Br>
-                            <input type="radio" name="service" value="will-use"> буду користуватись<Br>
-                        </p>
-                        <p><b>Комментарий</b><Br>
-                            <textarea name="comment" cols="40" rows="3"></textarea>
-                        </p>
-                        <p>
-                            <input type="submit" value="Отправить">
-                            <input type="reset" value="Очистить">
-                        </p>
-                    </form>
+                    <div style="display: inline-flex">
+                        <div style="width: 310px" >
+                            <p>
+                                <input type="radio" name="choiceAddition" value="prod" onchange="showAddProd()">
+                                <b>Додати вироника</b>
+                            </p>
+                            <form name="addProdForm" action="addProd.php" method="post" id="addProducer"  hidden>
+                                <p><b>Назва виробника</b><br>
+                                    <input type="text" size="35" name="nameOfProd">
+                                </p>
+                                <p><b>Адреса виробника</b><br>
+                                    <input type="text" size="35" name="addressOfProd">
+                                </p>
+                                <input type="submit" value="Отправить">
+                                <input type="reset" value="Очистить">
+                            </form>
+                        </div>
+
+                        <div style="width: 310px">
+                            <p>
+                                <input type="radio" name="choiceAddition" value="mark" onchange="showAddMark()">
+                                <b>Додати марку</b>
+                            </p>
+                            <form name="addMarkForm" action="addMark.php" method="post" id="addMark" hidden>
+                                <p><b>Назва марки</b><br>
+                                    <input type="text" size="35" name="nameOfMark">
+                                </p>
+                                <p><b>ID виробника</b><br>
+                                    <input type="text" size="35" name="IDOfProd">
+                                </p>
+                                <input type="submit" value="Отправить">
+                                <input type="reset" value="Очистить">
+                            </form>
+                        </div>
+
+                        <div style="width: 310px">
+                            <p>
+                                <input type="radio" name="choiceAddition" value="drink" onchange="showAddDrink()">
+                                <b>Додати напій</b>
+                            </p>
+                            <form name="addDrinkForm" action="addDrink.php" method="post" id="addDrink" hidden>
+                                <p><b>Назва напою</b><br>
+                                    <input type="text" size="35" name="nameOfDrink">
+                                </p>
+                                <p><b>Ціна напою</b><br>
+                                    <input type="text" size="35" name="priceOfDrink">
+                                </p>
+                                <p><b>ID марки</b><br>
+                                    <input type="text" size="35" name="IDOfMark">
+                                </p>
+                                <input type="submit" value="Отправить">
+                                <input type="reset" value="Очистить">
+                            </form>
+                        </div>
+                    </div>
+
+                    <div style="display: inline-flex">
+                        <?php
+                            $host = 'localhost';
+                            $database = 'LowAlcoholDB';
+                            $user = 'root';
+                            $password = '';
+
+                            $link = mysqli_connect($host, $user, $password, $database)
+                                or die("Ошибка " . mysqli_error($link));
+
+                            $query = "SELECT * FROM `producertable`";
+                            $result = mysqli_query($link, $query)
+                                or die("Ошибка " . mysqli_error($link));
+
+                            if ($result) {
+                                $rows = mysqli_num_rows($result);
+                                echo "<table><tr><th>Producer's IDs</th><th>Producers</th><th>Addresses</th></tr>";
+                                for ($i = 0 ; $i < $rows ; ++$i) {
+                                    $row = mysqli_fetch_row($result);
+                                    echo "<tr>";
+                                    for ($j = 0; $j < 3; ++$j)
+                                        echo "<td>$row[$j]</td>";
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                            }
+
+                            $query = "SELECT * FROM `marktable`";
+                            $result = mysqli_query($link, $query)
+                            or die("Ошибка " . mysqli_error($link));
+
+                            if ($result) {
+                                $rows = mysqli_num_rows($result);
+                                echo "<table><tr><th> Mark's IDs</th><th>Marks</th><th>Producer's IDs</th></tr>";
+                                for ($i = 0 ; $i < $rows ; ++$i) {
+                                    $row = mysqli_fetch_row($result);
+                                    echo "<tr>";
+                                    for ($j = 0; $j < 3; ++$j)
+                                        echo "<td>$row[$j]</td>";
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                            }
+
+                            $query = "SELECT * FROM `drinktable`";
+                            $result = mysqli_query($link, $query)
+                                or die("Ошибка " . mysqli_error($link));
+
+                            if ($result) {
+                                $rows = mysqli_num_rows($result);
+                                echo "<table><tr><th>Drink's IDs</th><th>Drinks</th><th>Prices</th><th>Mark's IDs</th></tr>";
+                                for ($i = 0 ; $i < $rows ; ++$i) {
+                                    $row = mysqli_fetch_row($result);
+                                    echo "<tr>";
+                                        for ($j = 0; $j < 4; ++$j)
+                                            echo "<td>$row[$j]</td>";
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                            }
+
+                            mysqli_close($link);
+                        ?>
+                    </div>
+
                 </section>
                 <section id="searchSection" hidden>
                     <h2 id="searchH2">Пошук по слову </h2>
                     <p id="searchParagraph"></p>
                 </section>
                 <section id="infoSection" hidden>
+                    <h2 id="infoH2">Browser information:</h2>
                     <p id="infoParagraph"></p>
                 </section>
             </div>
@@ -62,8 +157,7 @@
                         <li><a href="main.html">Головна</a></li>
                         <li><a href="menu.html">Меню</a></li>
                         <li><a href="news.html">Новини</a></li>
-                        <li><a href="input.html">Введення информації</a></li>
-                        <li><a href="showTables.php">Виведення информації</a></li>
+                        <li><a href="input.html">Ввід/вивід информації</a></li>
                         <li><a href="author.html">Про автора</a></li>
                     </ul>
                 </nav>
@@ -82,8 +176,6 @@
             <p id="amountOfClosedWindows"></p>
         </footer>
     </body>
-    <?
-        echo "Привет, я - скрипт PHP!";
-    ?>
-    <script src="script.js" language="JavaScript"></script>
+    <script src="script2.js" language="JavaScript"></script>
+    <script src="launchScript.js" language="JavaScript"></script>
 </html>
