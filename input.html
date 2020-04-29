@@ -6,7 +6,7 @@
         <meta name="description" content="Слабо-алкогольні напої, Low alcohol drinks">
         <meta name="author" content="Zul'Jin x Sacrifice x Baal">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style2.css">
         <title>Ввід/вивід даних</title>
     </head>
     <body>
@@ -16,18 +16,22 @@
         <main>
             <div class="left">
                 <section id="mainSection" class="contentT" >
-                    <div style="display: inline-flex">
-                        <div style="width: 310px" >
+                    <p style="color: red; font-weight: bold;">Подумайте перш ніж вводити дані в таблиці, помилка може порушити роботу програми!</p>
+                    <div style="display: inline-flex; border: 1px solid black; height: 331px;">
+                        <div style="width: 310px">
                             <p>
                                 <input type="radio" name="choiceAddition" value="prod" onchange="showAddProd()">
                                 <b>Додати вироника</b>
                             </p>
                             <form name="addProdForm" action="addProd.php" method="post" id="addProducer"  hidden>
+                                <p><b>ID виробника</b><br>
+                                    <input type="text" size="35" name="p_IDOfProd">
+                                </p>
                                 <p><b>Назва виробника</b><br>
-                                    <input type="text" size="35" name="nameOfProd">
+                                    <input type="text" size="35" name="p_nameOfProd">
                                 </p>
                                 <p><b>Адреса виробника</b><br>
-                                    <input type="text" size="35" name="addressOfProd">
+                                    <input type="text" size="35" name="p_addressOfProd">
                                 </p>
                                 <input type="submit" value="Отправить">
                                 <input type="reset" value="Очистить">
@@ -40,11 +44,14 @@
                                 <b>Додати марку</b>
                             </p>
                             <form name="addMarkForm" action="addMark.php" method="post" id="addMark" hidden>
+                                <p><b>ID марки</b><br>
+                                    <input type="text" size="35" name="m_IDOfMark">
+                                </p>
                                 <p><b>Назва марки</b><br>
-                                    <input type="text" size="35" name="nameOfMark">
+                                    <input type="text" size="35" name="m_nameOfMark">
                                 </p>
                                 <p><b>ID виробника</b><br>
-                                    <input type="text" size="35" name="IDOfProd">
+                                    <input type="text" size="35" name="m_IDOfProd">
                                 </p>
                                 <input type="submit" value="Отправить">
                                 <input type="reset" value="Очистить">
@@ -57,14 +64,17 @@
                                 <b>Додати напій</b>
                             </p>
                             <form name="addDrinkForm" action="addDrink.php" method="post" id="addDrink" hidden>
+                                <p><b>ID напою</b><br>
+                                    <input type="text" size="35" name="d_IDOfDrink">
+                                </p>
                                 <p><b>Назва напою</b><br>
-                                    <input type="text" size="35" name="nameOfDrink">
+                                    <input type="text" size="35" name="d_nameOfDrink">
                                 </p>
                                 <p><b>Ціна напою</b><br>
-                                    <input type="text" size="35" name="priceOfDrink">
+                                    <input type="text" size="35" name="d_priceOfDrink">
                                 </p>
                                 <p><b>ID марки</b><br>
-                                    <input type="text" size="35" name="IDOfMark">
+                                    <input type="text" size="35" name="d_IDOfMark">
                                 </p>
                                 <input type="submit" value="Отправить">
                                 <input type="reset" value="Очистить">
@@ -88,7 +98,7 @@
 
                             if ($result) {
                                 $rows = mysqli_num_rows($result);
-                                echo "<table><tr><th>Producer's IDs</th><th>Producers</th><th>Addresses</th></tr>";
+                                echo "<table><tr><th>ID</th><th>Виробники</th><th>Адреси</th></tr>";
                                 for ($i = 0 ; $i < $rows ; ++$i) {
                                     $row = mysqli_fetch_row($result);
                                     echo "<tr>";
@@ -105,7 +115,7 @@
 
                             if ($result) {
                                 $rows = mysqli_num_rows($result);
-                                echo "<table><tr><th> Mark's IDs</th><th>Marks</th><th>Producer's IDs</th></tr>";
+                                echo "<table><tr><th>ID</th><th>Марка</th><th>ID_виробника</th></tr>";
                                 for ($i = 0 ; $i < $rows ; ++$i) {
                                     $row = mysqli_fetch_row($result);
                                     echo "<tr>";
@@ -122,12 +132,12 @@
 
                             if ($result) {
                                 $rows = mysqli_num_rows($result);
-                                echo "<table><tr><th>Drink's IDs</th><th>Drinks</th><th>Prices</th><th>Mark's IDs</th></tr>";
+                                echo "<table><tr><th>ID</th><th>Вид</th><th>Ціна</th><th>ID_марки</th></tr>";
                                 for ($i = 0 ; $i < $rows ; ++$i) {
                                     $row = mysqli_fetch_row($result);
                                     echo "<tr>";
-                                        for ($j = 0; $j < 4; ++$j)
-                                            echo "<td>$row[$j]</td>";
+                                    for ($j = 0; $j < 4; ++$j)
+                                        echo "<td>$row[$j]</td>";
                                     echo "</tr>";
                                 }
                                 echo "</table>";
@@ -176,6 +186,6 @@
             <p id="amountOfClosedWindows"></p>
         </footer>
     </body>
-    <script src="script2.js" language="JavaScript"></script>
+    <script src="script.js" language="JavaScript"></script>
     <script src="launchScript.js" language="JavaScript"></script>
 </html>

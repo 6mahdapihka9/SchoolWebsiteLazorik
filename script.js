@@ -21,7 +21,7 @@ function searchWords(someText){
 
     let searchP = document.getElementById("searchParagraph");
     let searchH2 = document.getElementById("searchH2");
-    if (allText[0] !== undefined) {
+    if (allText[0] !== undefined && allText[0].textContent.match(reg3) !== null) {
         searchP.innerText = "";
         searchP.innerText += allText[0].textContent.match(reg3) + ';\n';
         searchP.innerText += allText[0].textContent.match(reg4) + ';\n';

@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="ru-RU" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta name="keywords" content="слабо-алкогольні напої, алкоголь, пиво, сидр, low alcohol, alcohol, beer, cider">
@@ -6,8 +5,8 @@
         <meta name="description" content="Слабо-алкогольні напої, Low alcohol drinks">
         <meta name="author" content="Zul'Jin x Sacrifice x Baal">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style2.css">
-        <title>Слабо-алкогольні напої</title>
+        <link rel="stylesheet" href="style1.css">
+        <title>Ввід/вивід даних</title>
     </head>
     <body>
         <header>
@@ -16,22 +15,30 @@
         <main>
             <div class="left">
                 <section id="mainSection" class="contentT" >
-                    <img src="img/unnamed-768x768.jpg" alt="" width="500" >
-                    <p style="font-weight: normal">Жмышенко Валерий Альбертович</p>
-                    <p>Бывший вор, рецидивист, как говорится, в отставке.</p>
-                    <p>54 года</p>
-                    <img src="img/zhmyh-valakas.jpg" alt="" width="500">
-                    <p>
-                        Глад Валакас (Пенис Детров, Жмышенко Валерий Альбертович) – стример онлайн-игр, ставший известным благодаря образу 54-летнего деда.
-                    </p>
-                    <p>
-                        Записывает видео, напрягая голосовые связки и говоря с акцентом.
-                    </p>
-                    <img src="img/zhmyshenko-glad.jpg" alt="" width="500">
-                    <p>
-                        ПИЛОТ ЖМЫШЕНКО СТАЖ 54 ГОДА ВЫГУЛИВАЕТ ИСТРЕБИТЕЛЯ И ЖМЫХ AIRLANES В САМАРУ
-                    </p>
-                    <img src="img/fxurtrubji4.jpg" alt="" width="500">
+                    <?php
+                        $d_IDOfDrink = $_POST["d_IDOfDrink"];
+                        $d_nameOfDrink = $_POST["d_nameOfDrink"];
+                        $d_priceOfDrink = $_POST["d_priceOfDrink"];
+                        $d_IDOfMark = $_POST["d_IDOfMark"];
+
+                        $host = 'localhost';
+                        $database = 'LowAlcoholDB';
+                        $user = 'root';
+                        $password = '';
+
+                        $link = mysqli_connect($host, $user, $password, $database)
+                            or die("Ошибка " . mysqli_error($link));
+
+                        $query = "INSERT INTO `drinktable` ( `DrinkID` , `Drink` , `Price` , `MarkID` )
+                        VALUES ('$d_IDOfDrink', '$d_nameOfDrink', '$d_priceOfDrink', '$d_IDOfMark')";
+
+                        $result = mysqli_query($link, $query)
+                            or die("Ошибка " . mysqli_error($link));
+                        if ($result) {
+                            echo "<span style='color:blue; font-size: 32px' >Дані успішно додані!</span>";
+                        }
+                        mysqli_close($link);
+                    ?>
                 </section>
                 <section id="searchSection" hidden>
                     <h2 id="searchH2">Пошук по слову </h2>
@@ -67,8 +74,7 @@
                     <p>email: Zul_Jin_x_Sacrifice@Baal.com</p>
                 </div>
             </address>
-            <p onclick="runTask()">&copy; Zul'Jin x Sacrifice x Baal</p>
-            <p id="amountOfClosedWindows"></p>
+            <p>&copy; Zul Jin x Sacrifice x Baal</p>
         </footer>
     </body>
     <script src="script.js" language="JavaScript"></script>
