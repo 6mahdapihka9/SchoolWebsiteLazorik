@@ -10,7 +10,6 @@
        exit();
    }
     $regPass = md5($regPass."qwertyasdfghzxcvbn");
-
     $host = 'localhost';
     $database = 'LowAlcoholDB';
     $user = 'root';
@@ -19,26 +18,14 @@
     $link = mysqli_connect($host, $user, $password, $database)
         or die("Ошибка " . mysqli_error($link));
 
-    $query = "SELECT * FROM `usertable` WHERE  `Login` = '$regLogin' AND `Password` = '$regPass'";
-    $result = mysqli_query($link, $query)
-                or die("Ошибка " . mysqli_error($link));
-    $user = $result->fetch_assoc();
-
-    if (count($user) == 1){
-        echo "Користувач вже існує!";
-        exit();
-    }
-
     $query = "INSERT INTO `usertable` ( `ID` , `Login` , `Password` )
     VALUES ('NULL', '$regLogin', '$regPass')";
 
     $result = mysqli_query($link, $query)
         or die("Ошибка " . mysqli_error($link));
-
-    setcookie('user', $regLogin, time() + 3600, '/LowAlcohol/news.php');
-
-    setcookie('logged', 'true', time() + 3600, "/LowAlcohol");
-
+    if ($result) {
+        echo "<span style='color:blue; font-size: 32px' >Дані успішно додані!</span>";
+    }
     mysqli_close($link);
     header('Location: /LowAlcohol/main.html');
 ?>

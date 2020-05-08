@@ -29,6 +29,7 @@
         echo "Користувач не знайден!";
         exit();
     }
+
     setcookie('user', $user['Login'], time() + 3600, '/LowAlcohol/news.php');
 
     setcookie('logged', 'true', time() + 3600, "/LowAlcohol");

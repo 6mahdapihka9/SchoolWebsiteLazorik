@@ -17,7 +17,7 @@
             <div class="left">
                 <section id="mainSection" class="contentT">
                     <?php
-                        if ($_COOKIE['user'] == ''):
+                        if ($_COOKIE != '' || $_COOKIE['user'] == ''):
                     ?>
                     <p>newsSection</p>
                     <p>newsSection</p>
