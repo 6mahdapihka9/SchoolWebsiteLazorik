@@ -23,7 +23,7 @@
                                 <input type="radio" name="choiceAddition" value="prod" onchange="showAddProd()">
                                 <b>Додати вироника</b>
                             </p>
-                            <form name="addProdForm" action="addProd.php" method="post" id="addProducer"  hidden>
+                            <form name="addProdForm" action="validation/addProd.php" method="post" id="addProducer"  hidden>
                                 <p><b>ID виробника</b><br>
                                     <input type="text" size="35" name="p_IDOfProd">
                                 </p>
@@ -43,7 +43,7 @@
                                 <input type="radio" name="choiceAddition" value="mark" onchange="showAddMark()">
                                 <b>Додати марку</b>
                             </p>
-                            <form name="addMarkForm" action="addMark.php" method="post" id="addMark" hidden>
+                            <form name="addMarkForm" action="validation/addMark.php" method="post" id="addMark" hidden>
                                 <p><b>ID марки</b><br>
                                     <input type="text" size="35" name="m_IDOfMark">
                                 </p>
@@ -63,7 +63,7 @@
                                 <input type="radio" name="choiceAddition" value="drink" onchange="showAddDrink()">
                                 <b>Додати напій</b>
                             </p>
-                            <form name="addDrinkForm" action="addDrink.php" method="post" id="addDrink" hidden>
+                            <form name="addDrinkForm" action="validation/addDrink.php" method="post" id="addDrink" hidden>
                                 <p><b>ID напою</b><br>
                                     <input type="text" size="35" name="d_IDOfDrink">
                                 </p>
@@ -146,7 +146,6 @@
                             mysqli_close($link);
                         ?>
                     </div>
-
                 </section>
                 <section id="searchSection" hidden>
                     <h2 id="searchH2">Пошук по слову </h2>
@@ -158,6 +157,8 @@
                 </section>
             </div>
             <div class="right">
+                <button id="logInButton" style="width: 220px;margin: 40px 40px 0 40px" onclick="window.location.href='authentication.html'">Увійти</button>
+                <button id="logOutButton" style="width: 220px;margin: 40px 40px 0 40px" onclick="window.location.href='validation/logOut.php'">Вийти</button>
                 <form name="searchFrom" style="margin: 40px">
                     <input type="text" name="searchText" placeholder="Search">
                     <input type="button" name="searchSubmit" value="Шукати" onclick="searchWords(document.searchFrom.searchText.value)">
@@ -166,7 +167,7 @@
                     <ul type="none">
                         <li><a href="main.html">Головна</a></li>
                         <li><a href="menu.html">Меню</a></li>
-                        <li><a href="news.html">Новини</a></li>
+                        <li><a href="news.php">Новини</a></li>
                         <li><a href="input.html">Ввід/вивід информації</a></li>
                         <li><a href="author.html">Про автора</a></li>
                     </ul>
@@ -186,6 +187,7 @@
             <p id="amountOfClosedWindows"></p>
         </footer>
     </body>
-    <script src="script.js" language="JavaScript"></script>
-    <script src="launchScript.js" language="JavaScript"></script>
+    <script src="script1.js" language="JavaScript" async></script>
+    <script src="launchScript.js" language="JavaScript" async></script>
+    <script src="authentication.js" language="JavaScript"></script>
 </html>

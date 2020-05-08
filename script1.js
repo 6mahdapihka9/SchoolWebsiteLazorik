@@ -41,3 +41,11 @@ function runTask() {
     for (let i = 0; i < arrayOfDivs.length; i++)
         infoP.innerText += arrayOfDivs[i].className + ", ";
 }
+function showAuthForm() {
+    document.getElementById('AuthFormID').hidden = false;
+    document.getElementById('RegFormID').hidden = true;
+}
+function showRegForm() {
+    document.getElementById('AuthFormID').hidden = true;
+    document.getElementById('RegFormID').hidden = false;
+}

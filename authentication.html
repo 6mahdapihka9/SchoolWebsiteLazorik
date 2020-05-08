@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru-RU" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="keywords" content="слабо-алкогольні напої, алкоголь, пиво, сидр, low alcohol, alcohol, beer, cider">
+    <meta charset="UTF-8">
+    <meta name="description" content="Слабо-алкогольні напої, Low alcohol drinks">
+    <meta name="author" content="Zul'Jin x Sacrifice x Baal">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Авторизация/регистрация</title>
+</head>
+<body>
+<header>
+    <h1 id="site_title" onmouseout="chBGH1back()" onmouseover="chBGH1()">Слабо-алкогольні напої</h1>
+</header>
+<main>
+    <div class="left">
+        <section id="mainSection" class="contentT">
+            <div style="display: inline-flex; border: 1px solid black; height: 220px;">
+                <div style="width: 310px">
+                    <p>
+                        <input type="radio" name="authReg" value="auth" onchange="showAuthForm()" checked>
+                        <b>Авторизація</b>
+                    </p>
+                    <form name="AuthForm" action="validation/logIn.php" method="post" id="AuthFormID">
+                        <p><b>Login</b><br>
+                            <input type="text" size="35" name="authLogin">
+                        </p>
+                        <p><b>Password</b><br>
+                            <input type="text" size="35" name="authPass">
+                        </p>
+                        <input type="submit" value="Увійти" style="width: 266px">
+                    </form>
+                </div>
+                <div style="width: 310px">
+                    <p>
+                        <input type="radio" name="authReg" value="reg" onchange="showRegForm()">
+                        <b>Реєстрація</b>
+                    </p>
+                    <form name="RegForm" action="validation/regUser.php" method="post" id="RegFormID"  hidden>
+                        <p><b>Login</b><br>
+                            <input type="text" size="35" name="regLogin">
+                        </p>
+                        <p><b>Password</b><br>
+                            <input type="text" size="35" name="regPass">
+                        </p>
+                        <input type="submit" value="Загеєструватися" style="width: 266px">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section id="searchSection" hidden>
+            <h2 id="searchH2">Пошук по слову </h2>
+            <p id="searchParagraph"></p>
+        </section>
+        <section id="infoSection" hidden>
+            <h2 id="infoH2">Browser information:</h2>
+            <p id="infoParagraph"></p>
+        </section>
+    </div>
+    <div class="right">
+        <form name="searchFrom" style="margin: 40px">
+            <input type="text" name="searchText" placeholder="Search">
+            <input type="button" name="searchSubmit" value="Шукати" onclick="searchWords(document.searchFrom.searchText.value)">
+        </form>
+        <nav>
+            <ul type="none">
+                <li><a href="main.html">Головна</a></li>
+                <li><a href="menu.html">Меню</a></li>
+                <li><a href="news.php">Новини</a></li>
+                <li><a href="input.html">Ввід/вивід информації</a></li>
+                <li><a href="author.html">Про автора</a></li>
+            </ul>
+        </nav>
+    </div>
+</main>
+<footer>
+    <address>
+        <div>
+            <p>Контактна інформація:</p>
+            <p>тел: 1488-666-69-13</p>
+            <p>адреса: м. Чернівці вул. Небесної Сотні 4б</p>
+            <p>email: Zul_Jin_x_Sacrifice@Baal.com</p>
+        </div>
+    </address>
+    <p onclick="runTask()">&copy; Zul'Jin x Sacrifice x Baal</p>
+    <p id="amountOfClosedWindows"></p>
+</footer>
+</body>
+<script src="script1.js" language="JavaScript" async></script>
+</html>

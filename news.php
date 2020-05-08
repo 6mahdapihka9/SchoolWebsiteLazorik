@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="ru-RU" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta name="keywords" content="слабо-алкогольні напої, алкоголь, пиво, сидр, low alcohol, alcohol, beer, cider">
@@ -5,8 +6,8 @@
         <meta name="description" content="Слабо-алкогольні напої, Low alcohol drinks">
         <meta name="author" content="Zul'Jin x Sacrifice x Baal">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style1.css">
-        <title>Ввід/вивід даних</title>
+        <link rel="stylesheet" href="style2.css">
+        <title>Слабо-алкогольні напої</title>
     </head>
     <body>
         <header>
@@ -14,30 +15,27 @@
         </header>
         <main>
             <div class="left">
-                <section id="mainSection" class="contentT" >
+                <section id="mainSection" class="contentT">
                     <?php
-                        $m_IDOfMark = $_POST["m_IDOfMark"];
-                        $m_nameOfMark = $_POST["m_nameOfMark"];
-                        $m_IDOfProd = $_POST["m_IDOfProd"];
-
-                        $host = 'localhost';
-                        $database = 'LowAlcoholDB';
-                        $user = 'root';
-                        $password = '';
-
-                        $link = mysqli_connect($host, $user, $password, $database)
-                            or die("Ошибка " . mysqli_error($link));
-
-                        $query = "INSERT INTO `marktable` ( `MarkID` , `Mark` , `ProdID` )
-                        VALUES ('$m_IDOfMark', '$m_nameOfMark', '$m_IDOfProd')";
-
-                        $result = mysqli_query($link, $query)
-                            or die("Ошибка " . mysqli_error($link));
-                        if ($result) {
-                            echo "<span style='color:blue; font-size: 32px' >Дані успішно додані!</span>";
-                        }
-                        mysqli_close($link);
+                        if ($_COOKIE['user'] == ''):
                     ?>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <?php else: ?>
+                    <div>
+                        <p>ШОК!!! <?=$_COOKIE['user']?>, ТЫ ЗНАЛ ЧТО <a href="http://www.baltic-course.com/rus/finansi/?doc=2921">ПИВО</a> ЛЕЧИТ РАК!!!</p>
+                    </div>
+                    <?php endif;?>
                 </section>
                 <section id="searchSection" hidden>
                     <h2 id="searchH2">Пошук по слову </h2>
@@ -49,9 +47,11 @@
                 </section>
             </div>
             <div class="right">
+                <button id="logInButton" style="width: 220px;margin: 40px 40px 0 40px" onclick="window.location.href='authentication.html'">Увійти</button>
+                <button id="logOutButton" style="width: 220px;margin: 40px 40px 0 40px" onclick="window.location.href='validation/logOut.php'">Вийти</button>
                 <form name="searchFrom" style="margin: 40px">
                     <input type="text" name="searchText" placeholder="Search">
-                    <input type="button" name="searchSubmit" value="Шукати" onclick="searchWords(document.searchFrom.searchText.value)">
+                    <input type="button" name="searchSubmit" value="Шукати" onclick="searchWords(document.searchFrom.searchText.value); return false;">
                 </form>
                 <nav>
                     <ul type="none">
@@ -73,8 +73,10 @@
                     <p>email: Zul_Jin_x_Sacrifice@Baal.com</p>
                 </div>
             </address>
-            <p>&copy; Zul Jin x Sacrifice x Baal</p>
+            <p onclick="runTask()">&copy; Zul Jin x Sacrifice x Baal</p>
+            <p id="amountOfClosedWindows"></p>
         </footer>
     </body>
-    <script src="script.js" language="JavaScript"></script>
+    <script src="script1.js" language="JavaScript" async></script>
+    <script src="authentication.js" language="JavaScript"></script>
 </html>

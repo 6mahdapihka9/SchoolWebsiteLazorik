@@ -86,6 +86,8 @@
                 </section>
             </div>
             <div class="right">
+                <button id="logInButton" style="width: 220px;margin: 40px 40px 0 40px" onclick="window.location.href='authentication.html'">Увійти</button>
+                <button id="logOutButton" style="width: 220px;margin: 40px 40px 0 40px" onclick="window.location.href='validation/logOut.php'">Вийти</button>
                 <form name="searchFrom" style="margin: 40px">
                     <input type="text" name="searchText" placeholder="Search">
                     <input type="button" name="searchSubmit" value="Шукати" onclick="searchWords(document.searchFrom.searchText.value)">
@@ -94,7 +96,7 @@
                     <ul type="none">
                         <li><a href="main.html">Головна</a></li>
                         <li><a href="menu.html">Меню</a></li>
-                        <li><a href="news.html">Новини</a></li>
+                        <li><a href="news.php">Новини</a></li>
                         <li><a href="input.html">Ввід/вивід информації</a></li>
                         <li><a href="author.html">Про автора</a></li>
                     </ul>
@@ -114,5 +116,6 @@
             <p id="amountOfClosedWindows"></p>
         </footer>
     </body>
-    <script src="script.js" language="JavaScript"></script>
+    <script src="script1.js" language="JavaScript" async></script>
+    <script src="authentication.js" language="JavaScript"></script>
 </html>
