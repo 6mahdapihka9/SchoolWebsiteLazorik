@@ -1,8 +1,8 @@
 <?php
-    $d_IDOfDrink = $_POST["d_IDOfDrink"];
-    $d_nameOfDrink = $_POST["d_nameOfDrink"];
-    $d_priceOfDrink = $_POST["d_priceOfDrink"];
-    $d_IDOfMark = $_POST["d_IDOfMark"];
+    $a_d_IDOfDrink = $_POST["a_d_IDOfDrink"];
+    $a_d_nameOfDrink = $_POST["a_d_nameOfDrink"];
+    $a_d_priceOfDrink = $_POST["a_d_priceOfDrink"];
+    $a_d_IDOfMark = $_POST["a_d_IDOfMark"];
 
     $host = 'localhost';
     $database = 'LowAlcoholDB';
@@ -13,13 +13,11 @@
         or die("Ошибка " . mysqli_error($link));
 
     $query = "INSERT INTO `drinktable` ( `DrinkID` , `Drink` , `Price` , `MarkID` )
-    VALUES ('$d_IDOfDrink', '$d_nameOfDrink', '$d_priceOfDrink', '$d_IDOfMark')";
+    VALUES ('$a_d_IDOfDrink', '$a_d_nameOfDrink', '$a_d_priceOfDrink', '$a_d_IDOfMark')";
 
     $result = mysqli_query($link, $query)
         or die("Ошибка " . mysqli_error($link));
-    if ($result) {
-        echo "<span style='color:blue; font-size: 32px' >Дані успішно додані!</span>";
-    }
+
     mysqli_close($link);
     header('Location: /LowAlcohol/input.html');
 ?>

@@ -19,12 +19,12 @@
     $link = mysqli_connect($host, $user, $password, $database)
         or die("Ошибка " . mysqli_error($link));
 
-    $query = "SELECT * FROM `usertable` WHERE  `Login` = '$regLogin' AND `Password` = '$regPass'";
+    $query = "SELECT * FROM `usertable` WHERE  `Login` = '$regLogin'";
     $result = mysqli_query($link, $query)
                 or die("Ошибка " . mysqli_error($link));
     $user = $result->fetch_assoc();
 
-    if (count($user) == 1){
+    if (count($user) > 0){
         echo "Користувач вже існує!";
         exit();
     }
@@ -38,7 +38,6 @@
     setcookie('user', $regLogin, time() + 3600, '/LowAlcohol/news.php');
 
     setcookie('logged', 'true', time() + 3600, "/LowAlcohol");
-
     mysqli_close($link);
     header('Location: /LowAlcohol/main.html');
 ?>

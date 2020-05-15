@@ -6,7 +6,7 @@
         <meta name="description" content="Слабо-алкогольні напої, Low alcohol drinks">
         <meta name="author" content="Zul'Jin x Sacrifice x Baal">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="style1.css">
         <title>Слабо-алкогольні напої</title>
     </head>
     <body>
@@ -17,24 +17,24 @@
             <div class="left">
                 <section id="mainSection" class="contentT">
                     <?php
-                        if ($_COOKIE != '' || $_COOKIE['user'] == ''):
+                        if (isset($_COOKIE['user'])):
                     ?>
-                    <p>newsSection</p>
-                    <p>newsSection</p>
-                    <p>newsSection</p>
-                    <p>newsSection</p>
-                    <p>newsSection</p>
-                    <p>newsSection</p>
-                    <p>newsSection</p>
-                    <p>newsSection</p>
-                    <p>newsSection</p>
-                    <p>newsSection</p>
-                    <p>newsSection</p>
-                    <p>newsSection</p>
-                    <?php else: ?>
                     <div>
                         <p>ШОК!!! <?=$_COOKIE['user']?>, ТЫ ЗНАЛ ЧТО <a href="http://www.baltic-course.com/rus/finansi/?doc=2921">ПИВО</a> ЛЕЧИТ РАК!!!</p>
                     </div>
+                    <?php else: ?>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
+                    <p>newsSection</p>
                     <?php endif;?>
                 </section>
                 <section id="searchSection" hidden>
@@ -78,5 +78,5 @@
         </footer>
     </body>
     <script src="script1.js" language="JavaScript" async></script>
-    <script src="authentication.js" language="JavaScript"></script>
+    <script src="authentication2.js" language="JavaScript"></script>
 </html>

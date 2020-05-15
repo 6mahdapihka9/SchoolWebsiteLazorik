@@ -1,7 +1,7 @@
 <?php
-    $a_m_IDOfMark = $_POST["a_m_IDOfMark"];
-    $a_m_nameOfMark = $_POST["a_m_nameOfMark"];
-    $a_m_IDOfProd = $_POST["a_m_IDOfProd"];
+    $c_p_IDOfProd = $_POST["c_p_IDOfProd"];
+    $c_p_nameOfProd = $_POST["c_p_nameOfProd"];
+    $c_p_addressOfProd = $_POST["c_p_addressOfProd"];
 
     $host = 'localhost';
     $database = 'LowAlcoholDB';
@@ -11,8 +11,8 @@
     $link = mysqli_connect($host, $user, $password, $database)
         or die("Ошибка " . mysqli_error($link));
 
-    $query = "INSERT INTO `marktable` ( `MarkID` , `Mark` , `ProdID` )
-    VALUES ('$a_m_IDOfMark', '$a_m_nameOfMark', '$a_m_IDOfProd')";
+    $query = "UPDATE `producertable` SET `Producer` = '$c_p_nameOfProd', `Address` = '$c_p_addressOfProd'
+        WHERE `producertable`.`ProdID` = '$c_p_IDOfProd'";
 
     $result = mysqli_query($link, $query)
         or die("Ошибка " . mysqli_error($link));

@@ -6,7 +6,7 @@
         <meta name="description" content="Слабо-алкогольні напої, Low alcohol drinks">
         <meta name="author" content="Zul'Jin x Sacrifice x Baal">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="style1.css">
         <title>Ввід/вивід даних</title>
     </head>
     <body>
@@ -15,74 +15,226 @@
         </header>
         <main>
             <div class="left">
-                <section id="mainSection" class="contentT" >
-                    <p style="color: red; font-weight: bold;">Подумайте перш ніж вводити дані в таблиці, помилка може порушити роботу програми!</p>
-                    <div style="display: inline-flex; border: 1px solid black; height: 331px;">
-                        <div style="width: 310px">
-                            <p>
-                                <input type="radio" name="choiceAddition" value="prod" onchange="showAddProd()">
-                                <b>Додати вироника</b>
-                            </p>
-                            <form name="addProdForm" action="validation/addProd.php" method="post" id="addProducer"  hidden>
-                                <p><b>ID виробника</b><br>
-                                    <input type="text" size="35" name="p_IDOfProd">
-                                </p>
-                                <p><b>Назва виробника</b><br>
-                                    <input type="text" size="35" name="p_nameOfProd">
-                                </p>
-                                <p><b>Адреса виробника</b><br>
-                                    <input type="text" size="35" name="p_addressOfProd">
-                                </p>
-                                <input type="submit" value="Отправить">
-                                <input type="reset" value="Очистить">
-                            </form>
-                        </div>
-
-                        <div style="width: 310px">
-                            <p>
-                                <input type="radio" name="choiceAddition" value="mark" onchange="showAddMark()">
-                                <b>Додати марку</b>
-                            </p>
-                            <form name="addMarkForm" action="validation/addMark.php" method="post" id="addMark" hidden>
-                                <p><b>ID марки</b><br>
-                                    <input type="text" size="35" name="m_IDOfMark">
-                                </p>
-                                <p><b>Назва марки</b><br>
-                                    <input type="text" size="35" name="m_nameOfMark">
-                                </p>
-                                <p><b>ID виробника</b><br>
-                                    <input type="text" size="35" name="m_IDOfProd">
-                                </p>
-                                <input type="submit" value="Отправить">
-                                <input type="reset" value="Очистить">
-                            </form>
-                        </div>
-
-                        <div style="width: 310px">
-                            <p>
-                                <input type="radio" name="choiceAddition" value="drink" onchange="showAddDrink()">
-                                <b>Додати напій</b>
-                            </p>
-                            <form name="addDrinkForm" action="validation/addDrink.php" method="post" id="addDrink" hidden>
-                                <p><b>ID напою</b><br>
-                                    <input type="text" size="35" name="d_IDOfDrink">
-                                </p>
-                                <p><b>Назва напою</b><br>
-                                    <input type="text" size="35" name="d_nameOfDrink">
-                                </p>
-                                <p><b>Ціна напою</b><br>
-                                    <input type="text" size="35" name="d_priceOfDrink">
-                                </p>
-                                <p><b>ID марки</b><br>
-                                    <input type="text" size="35" name="d_IDOfMark">
-                                </p>
-                                <input type="submit" value="Отправить">
-                                <input type="reset" value="Очистить">
-                            </form>
-                        </div>
+                <section id="mainSection" class="contentT">
+                    <div id="PHPs_block1">
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
+                        <p>You need to log in to see this section!!!</p>
                     </div>
+                    <div id="PHPs_block2">
+                        <p style="color: red; font-weight: bold;">Подумайте перш ніж вводити дані в таблиці, помилка може порушити роботу програми!</p>
+                        <p>
+                            <input type="radio" name="choiceFunc" value="add" onchange="show('add')">
+                            <b>Додати дані</b>
+                        </p>
 
-                    <div style="display: inline-flex">
+
+
+                        <div id="add" style="display: none; border: 1px solid black; height: 331px;" hidden>
+                            <div style="width: 270px">
+                                <p>
+                                    <input type="radio" name="choiceAddition" value="prod" onchange="showAdd('addProducer')">
+                                    <b>Додати вироника</b>
+                                </p>
+                                <form name="addProdForm" action="validation/addProd.php" method="post" id="addProducer" hidden>
+                                    <p><b>ID виробника</b><br>
+                                        <input type="text" name="a_p_IDOfProd">
+                                    </p>
+                                    <p><b>Назва виробника</b><br>
+                                        <input type="text" name="a_p_nameOfProd">
+                                    </p>
+                                    <p><b>Адреса виробника</b><br>
+                                        <input type="text" name="a_p_addressOfProd">
+                                    </p>
+                                    <input type="submit" value="Отправить">
+                                    <input type="reset" value="Очистить">
+                                </form>
+                            </div>
+
+                            <div style="width: 270px">
+                                <p>
+                                    <input type="radio" name="choiceAddition" value="mark" onchange="showAdd('addMark')">
+                                    <b>Додати марку</b>
+                                </p>
+                                <form name="addMarkForm" action="validation/addMark.php" method="post" id="addMark" hidden>
+                                    <p><b>ID марки</b><br>
+                                        <input type="text" name="a_m_IDOfMark">
+                                    </p>
+                                    <p><b>Назва марки</b><br>
+                                        <input type="text" name="a_m_nameOfMark">
+                                    </p>
+                                    <p><b>ID виробника</b><br>
+                                        <input type="text" name="a_m_IDOfProd">
+                                    </p>
+                                    <input type="submit" value="Отправить">
+                                    <input type="reset" value="Очистить">
+                                </form>
+                            </div>
+
+                            <div style="width: 270px">
+                                <p>
+                                    <input type="radio" name="choiceAddition" value="drink" onchange="showAdd('addDrink')">
+                                    <b>Додати напій</b>
+                                </p>
+                                <form name="addDrinkForm" action="validation/addDrink.php" method="post" id="addDrink" hidden>
+                                    <p><b>ID напою</b><br>
+                                        <input type="text" name="a_d_IDOfDrink">
+                                    </p>
+                                    <p><b>Назва напою</b><br>
+                                        <input type="text" name="a_d_nameOfDrink">
+                                    </p>
+                                    <p><b>Ціна напою</b><br>
+                                        <input type="text" name="a_d_priceOfDrink">
+                                    </p>
+                                    <p><b>ID марки</b><br>
+                                        <input type="text" name="a_d_IDOfMark">
+                                    </p>
+                                    <input type="submit" value="Отправить">
+                                    <input type="reset" value="Очистить">
+                                </form>
+                            </div>
+                        </div>
+
+
+
+                        <p>
+                            <input type="radio" name="choiceFunc" value="change" onchange="show('change')">
+                            <b>Редагувати дані</b>
+                        </p>
+
+
+
+                        <div id="change" style="display: none; border: 1px solid black; height: 331px;" hidden>
+                            <div style="width: 270px">
+                                <p>
+                                    <input type="radio" name="choiceChange" value="prod" onchange="showChange('changeProducer')">
+                                    <b>Редагувати вироника</b>
+                                </p>
+                                <form name="changeProdForm" action="validation/changeProd.php" method="post" id="changeProducer"  hidden>
+                                    <p><b>ID виробника</b><br>
+                                        <input type="text" name="c_p_IDOfProd">
+                                    </p>
+                                    <p><b>Нова назва виробника</b><br>
+                                        <input type="text" name="c_p_nameOfProd">
+                                    </p>
+                                    <p><b>Нова адреса виробника</b><br>
+                                        <input type="text" name="c_p_addressOfProd">
+                                    </p>
+                                    <input type="submit" value="Отправить">
+                                    <input type="reset" value="Очистить">
+                                </form>
+                            </div>
+
+                            <div style="width: 270px">
+                                <p>
+                                    <input type="radio" name="choiceChange" value="mark" onchange="showChange('changeMark')">
+                                    <b>Редагувати марку</b>
+                                </p>
+                                <form name="changeMarkForm" action="validation/changeMark.php" method="post" id="changeMark" hidden>
+                                    <p><b>ID марки</b><br>
+                                        <input type="text" name="c_m_IDOfMark">
+                                    </p>
+                                    <p><b>Нова назва марки</b><br>
+                                        <input type="text" name="c_m_nameOfMark">
+                                    </p>
+                                    <p><b>Нове ID виробника</b><br>
+                                        <input type="text" name="c_m_IDOfProd">
+                                    </p>
+                                    <input type="submit" value="Отправить">
+                                    <input type="reset" value="Очистить">
+                                </form>
+                            </div>
+
+                            <div style="width: 270px">
+                                <p>
+                                    <input type="radio" name="choiceChange" value="drink" onchange="showChange('changeDrink')">
+                                    <b>Редагувати напій</b>
+                                </p>
+                                <form name="changeDrinkForm" action="validation/changeDrink.php" method="post" id="changeDrink" hidden>
+                                    <p><b>ID напою</b><br>
+                                        <input type="text" name="c_d_IDOfDrink">
+                                    </p>
+                                    <p><b>Нова назва напою</b><br>
+                                        <input type="text" name="c_d_nameOfDrink">
+                                    </p>
+                                    <p><b>Нова ціна напою</b><br>
+                                        <input type="text" name="c_d_priceOfDrink">
+                                    </p>
+                                    <p><b>Нове ID марки</b><br>
+                                        <input type="text" name="c_d_IDOfMark">
+                                    </p>
+                                    <input type="submit" value="Отправить">
+                                    <input type="reset" value="Очистить">
+                                </form>
+                            </div>
+                        </div>
+
+
+
+                        <p>
+                            <input type="radio" name="choiceFunc" value="remove" onchange="show('remove')">
+                            <b>Видалити дані</b>
+                        </p>
+
+
+
+                        <div id="remove" style="display: none; border: 1px solid black; height: 166px;" hidden>
+                            <div style="width: 270px">
+                                <p>
+                                    <input type="radio" name="choiceRemoving" value="prod" onchange="showRemove('removeProducer')">
+                                    <b>Видалити вироника</b>
+                                </p>
+                                <form name="removeProdForm" action="validation/removeProd.php" method="post" id="removeProducer" hidden>
+                                    <p><b>ID виробника</b><br>
+                                        <input type="text" name="r_p_IDOfProd">
+                                    </p>
+                                    <input type="submit" value="Отправить">
+                                    <input type="reset" value="Очистить">
+                                </form>
+                            </div>
+
+                            <div style="width: 270px">
+                                <p>
+                                    <input type="radio" name="choiceRemoving" value="mark" onchange="showRemove('removeMark')">
+                                    <b>Видалити марку</b>
+                                </p>
+                                <form name="removeMarkForm" action="validation/removeMark.php" method="post" id="removeMark" hidden>
+                                    <p><b>ID марки</b><br>
+                                        <input type="text" name="r_m_IDOfMark">
+                                    </p>
+                                    <input type="submit" value="Отправить">
+                                    <input type="reset" value="Очистить">
+                                </form>
+                            </div>
+
+                            <div style="width: 270px">
+                                <p>
+                                    <input type="radio" name="choiceRemoving" value="drink" onchange="showRemove('removeDrink')">
+                                    <b>Видалити напій</b>
+                                </p>
+                                <form name="removeDrinkForm" action="validation/removeDrink.php" method="post" id="removeDrink" hidden>
+                                    <p><b>ID напою</b><br>
+                                        <input type="text" name="r_d_IDOfDrink">
+                                    </p>
+                                    <input type="submit" value="Отправить">
+                                    <input type="reset" value="Очистить">
+                                </form>
+                            </div>
+                        </div>
+
+
+
+                        <div style="display: inline-flex">
                         <?php
                             $host = 'localhost';
                             $database = 'LowAlcoholDB';
@@ -146,6 +298,7 @@
                             mysqli_close($link);
                         ?>
                     </div>
+                    </div>
                 </section>
                 <section id="searchSection" hidden>
                     <h2 id="searchH2">Пошук по слову </h2>
@@ -188,6 +341,6 @@
         </footer>
     </body>
     <script src="script1.js" language="JavaScript" async></script>
-    <script src="launchScript.js" language="JavaScript" async></script>
-    <script src="authentication.js" language="JavaScript"></script>
+    <script src="launchScript1.js" language="JavaScript" async></script>
+    <script src="authentication2.js" language="JavaScript"></script>
 </html>
